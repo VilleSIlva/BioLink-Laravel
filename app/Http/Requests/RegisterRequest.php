@@ -7,6 +7,7 @@ use Illuminate\Container\Attributes\DB;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterRequest extends FormRequest
 {
@@ -31,7 +32,7 @@ class RegisterRequest extends FormRequest
         return [
             "name"=>['required','min:3'],
             "email"=>["email","required","unique:users"],
-            "password"=>['required','confirmed','min:8']
+            "password"=>['required','confirmed','min:8',Password::min(8)->letters()]
         ];
     }
 

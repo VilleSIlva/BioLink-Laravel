@@ -18,8 +18,11 @@ Route::middleware('guest')->group(function(){
 
 
 
-Route::prefix("/dashboard")->group(function(){
+Route::prefix("/dashboard")->middleware("auth")->group(function(){
     // Route Dashboard
-    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('/',DashboardController::class)->name('dashboard');
+
+    //Logout
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
-})->middleware("auth");
+    
+});

@@ -7,21 +7,15 @@
     <!--Font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!--Link css vite--->
     @vite('resources/css/app.css')
+
     <title>Document</title>
 </head>
-<body class="flex min-h-screen bg-gray-100 flex-col">
-
-    <!--Header-->
-    <div class="navbar bg-base-100 shadow-sm justify-between px-20">
-        <a class="btn btn-ghost text-xl">BioLink</a>
-        <a class="hover:underline font-bold" href="{{ route("logout") }}">Sair</a>
-    </div>
-    
+<body class="flex min-h-screen bg-black flex-col p-5">
     <!-- Conteúdo -->
-    <div class="min-w-7xl mx-auto p-5">
+    <div class="max-w-2xl w-full mx-auto p-5 flex flex-col">
         @yield('content')
     </div>
-
 </body>
 </html>
